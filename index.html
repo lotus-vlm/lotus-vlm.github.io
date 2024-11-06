@@ -136,19 +136,28 @@
 
     /* データ行とメトリック行の区切り */
     .lotus-table td:nth-child(5),
-    .lotus-table td:nth-child(10),
-    .lotus-table td:nth-child(14),
+    .lotus-table td:nth-child(9),
+    .lotus-table td:nth-child(12),
     .lotus-table th:nth-child(5),
-    .lotus-table th:nth-child(10),
-    .lotus-table th:nth-child(14) {
+    .lotus-table th:nth-child(9),
+    .lotus-table th:nth-child(12) {
         border-right: 2px solid #ddd;
         padding-right: 15px;
         margin-right: 15px;
     }
     
     /* カテゴリーヘッダーの区切り線用 */
-    .category-header th[colspan="4"]:not(:last-child),
-    .category-header th[colspan="3"]:not(:last-child) {
+    .lotus-table tr.category-header th:nth-child(2) {  /* Alignment の後 */
+        border-right: 2px solid #ddd;
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+    .lotus-table tr.category-header th:nth-child(3) {  /* Descriptiveness の後 */
+        border-right: 2px solid #ddd;
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+    .lotus-table tr.category-header th:nth-child(4) {  /* Complexity の後 */
         border-right: 2px solid #ddd;
         padding-right: 15px;
         margin-right: 15px;

@@ -64,6 +64,67 @@
       });
   </script>
 
+<!-- ここに追加 -->
+<style>
+    .lotus-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9em;
+    }
+
+    .lotus-table th,
+    .lotus-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .lotus-table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    .lotus-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .category-header {
+      background-color: #eef;
+      font-weight: bold;
+    }
+
+    .table-caption {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .best-score {
+      font-weight: bold;
+      color: #2a4b8d;
+    }
+
+    .second-best {
+      text-decoration: underline;
+    }
+
+    .score-up::after {
+      content: " ↑";
+      color: green;
+    }
+
+    .score-down::after {
+      content: " ↓";
+      color: red;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -175,16 +236,148 @@
     <div class="hero-body">
       <div class="columns is-centered">
         <div class="column is-8">
-          <h2 class="title is-2 has-text-centered">Udpates</h2>
-          Thanks for your interest in XXXX! We will update more details shortly. Stay tuned!
-          <div class="content has-text-justified">
+          <h2 class="title is-2 has-text-centered">Leaderboard</h2>
+          <div class="content">
+            <div class="table-container">
+              <div class="table-caption">
+                <p>Unified evaluation of LVLM captioners on LOTUS with CLIPScore (CLIP-S), CapScore (CapS_S, CapS_A), 
+                   CLIP recall (recall), noun/verb coverage (noun, verb), syntactic and semantic complexities (syn, sem), 
+                   CHAIR_s (CH_s), FaithScore (FS, FS_s), and existence of NSFW words (harm). 
+                   Values in <strong>bold</strong> and <u>underline</u> indicate the best and second-best, respectively. 
+                   All metrics are scaled by 100.</p>
+              </div>
+              <table class="lotus-table">
+                <thead>
+                  <tr class="category-header">
+                    <th rowspan="2">Model</th>
+                    <th colspan="4">Alignment ↑</th>
+                    <th colspan="4">Descriptiveness ↑</th>
+                    <th colspan="3">Complexity ↑</th>
+                    <th colspan="5">Side effects</th>
+                  </tr>
+                  <tr>
+                    <th>CLIP-S</th>
+                    <th>CapS_S</th>
+                    <th>CapS_A</th>
+                    <th>N-avg</th>
+                    <th>Recall</th>
+                    <th>Noun</th>
+                    <th>Verb</th>
+                    <th>N-avg</th>
+                    <th>Syn</th>
+                    <th>Sem</th>
+                    <th>N-avg</th>
+                    <th class="score-down">CH_s</th>
+                    <th class="score-up">FS</th>
+                    <th class="score-up">FS_s</th>
+                    <th class="score-down">Harm</th>
+                    <th class="score-up">N-avg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>MiniGPT-4</td>
+                    <td>60.8</td>
+                    <td>33.0</td>
+                    <td>35.9</td>
+                    <td>0.19</td>
+                    <td>75.3</td>
+                    <td>33.0</td>
+                    <td class="second-best">34.7</td>
+                    <td>0.22</td>
+                    <td class="second-best">8.0</td>
+                    <td>32.6</td>
+                    <td>0.38</td>
+                    <td class="second-best">37.8</td>
+                    <td>55.0</td>
+                    <td>37.6</td>
+                    <td>0.31</td>
+                    <td>0.18</td>
+                  </tr>
+                  <tr>
+                    <td>InstructBLIP</td>
+                    <td>59.9</td>
+                    <td>36.0</td>
+                    <td>35.5</td>
+                    <td>0.18</td>
+                    <td>82.1</td>
+                    <td>34.2</td>
+                    <td class="second-best">34.7</td>
+                    <td class="second-best">0.40</td>
+                    <td>7.7</td>
+                    <td class="second-best">46.0</td>
+                    <td class="second-best">0.41</td>
+                    <td>58.5</td>
+                    <td class="second-best">62.4</td>
+                    <td class="best-score">43.3</td>
+                    <td class="second-best">0.10</td>
+                    <td class="second-best">0.66</td>
+                  </tr>
+                  <tr>
+                    <td>LLaVA-1.5</td>
+                    <td class="second-best">60.1</td>
+                    <td class="second-best">38.5</td>
+                    <td class="best-score">45.0</td>
+                    <td class="second-best">0.67</td>
+                    <td>80.5</td>
+                    <td>32.5</td>
+                    <td>31.0</td>
+                    <td>0.11</td>
+                    <td>7.1</td>
+                    <td>39.6</td>
+                    <td>0.08</td>
+                    <td>49.0</td>
+                    <td class="best-score">65.7</td>
+                    <td>41.6</td>
+                    <td>0.12</td>
+                    <td class="best-score">0.71</td>
+                  </tr>
+                  <tr>
+                    <td>mPLUG-Owl2</td>
+                    <td>59.7</td>
+                    <td class="best-score">39.7</td>
+                    <td>40.0</td>
+                    <td>0.49</td>
+                    <td class="second-best">83.3</td>
+                    <td class="second-best">35.0</td>
+                    <td>32.8</td>
+                    <td>0.34</td>
+                    <td>7.4</td>
+                    <td>45.6</td>
+                    <td>0.28</td>
+                    <td>59.1</td>
+                    <td>62.0</td>
+                    <td>41.3</td>
+                    <td class="best-score">0.08</td>
+                    <td>0.58</td>
+                  </tr>
+                  <tr>
+                    <td>Qwen2-VL</td>
+                    <td class="best-score">61.8</td>
+                    <td>37.3</td>
+                    <td class="second-best">43.2</td>
+                    <td class="best-score">0.82</td>
+                    <td class="best-score">90.4</td>
+                    <td class="best-score">45.9</td>
+                    <td class="best-score">36.9</td>
+                    <td class="best-score">1.00</td>
+                    <td class="best-score">8.3</td>
+                    <td class="best-score">75.7</td>
+                    <td class="best-score">1.00</td>
+                    <td class="best-score">26.8</td>
+                    <td>54.2</td>
+                    <td class="second-best">41.7</td>
+                    <td>0.28</td>
+                    <td>0.46</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
-
 
   <section class="hero teaser" id="BibTeX">
     <div class="hero-body">

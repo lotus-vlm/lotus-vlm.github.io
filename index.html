@@ -164,29 +164,29 @@
     }
 
 
-    /* Bias-aware テーブルの区切り */
-    .bias-table td:nth-child(4),
-    .bias-table td:nth-child(8),
-    .bias-table td:nth-child(12),
-    .bias-table td:nth-child(15),
-    .bias-table tr:not(.category-header) th:nth-child(3),
-    .bias-table tr:not(.category-header) th:nth-child(7),
-    .bias-table tr:not(.category-header) th:nth-child(11),
-    .bias-table tr:not(.category-header) th:nth-child(14) {
-        border-right: 2px solid #ddd;
-        padding-right: 15px;
-        margin-right: 15px;
-    }
-    
-    /* Bias-aware テーブルのカテゴリーヘッダーの区切り */
-    .bias-table tr.category-header th:nth-child(2),
-    .bias-table tr.category-header th:nth-child(3),
-    .bias-table tr.category-header th:nth-child(4),
-    .bias-table tr.category-header th:nth-child(5) {
-        border-right: 2px solid #ddd;
-        padding-right: 15px;
-        margin-right: 15px;
-    }
+   /* Bias-aware テーブルの区切り */
+  .bias-table td:nth-child(4),  /* CapS_Aの後 */
+  .bias-table td:nth-child(7),  /* Verbの後 */
+  .bias-table td:nth-child(9),  /* Semの後 */
+  .bias-table td:nth-child(13), /* Harmの後 */
+  .bias-table tr:not(.category-header) th:nth-child(4),
+  .bias-table tr:not(.category-header) th:nth-child(7),
+  .bias-table tr:not(.category-header) th:nth-child(9),
+  .bias-table tr:not(.category-header) th:nth-child(13) {
+      border-right: 2px solid #ddd;
+      padding-right: 15px;
+      margin-right: 15px;
+  }
+  
+  /* Bias-aware テーブルのカテゴリーヘッダーの区切り */
+  .bias-table tr.category-header th:nth-child(2), /* Alignmentの後 */
+  .bias-table tr.category-header th:nth-child(3), /* Descriptivenessの後 */
+  .bias-table tr.category-header th:nth-child(4), /* Complexityの後 */
+  .bias-table tr.category-header th:nth-child(5) { /* Side effectsの後 */
+      border-right: 2px solid #ddd;
+      padding-right: 15px;
+      margin-right: 15px;
+  }
   </style>
 
 </head>

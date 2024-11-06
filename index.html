@@ -162,6 +162,31 @@
         padding-right: 15px;
         margin-right: 15px;
     }
+
+
+    /* Bias-aware テーブルの区切り */
+    .bias-table td:nth-child(4),
+    .bias-table td:nth-child(7),
+    .bias-table td:nth-child(9),
+    .bias-table td:nth-child(13),
+    .bias-table tr:not(.category-header) th:nth-child(4),
+    .bias-table tr:not(.category-header) th:nth-child(7),
+    .bias-table tr:not(.category-header) th:nth-child(9),
+    .bias-table tr:not(.category-header) th:nth-child(13) {
+        border-right: 2px solid #ddd;
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+    
+    /* Bias-aware テーブルのカテゴリーヘッダーの区切り */
+    .bias-table tr.category-header th:nth-child(2),
+    .bias-table tr.category-header th:nth-child(3),
+    .bias-table tr.category-header th:nth-child(4),
+    .bias-table tr.category-header th:nth-child(5) {
+        border-right: 2px solid #ddd;
+        padding-right: 15px;
+        margin-right: 15px;
+    }
   </style>
 
 </head>
@@ -285,7 +310,7 @@
                    Values in <strong>bold</strong> and <u>underline</u> indicate the best and second-best, respectively. 
                    All metrics are scaled by 100.</p>
               </div>
-              <table class="lotus-table">
+              <table class="lotus-table standard-table">
                 <thead>
                   <tr class="category-header">
                     <th rowspan="2">Model</th>
@@ -430,7 +455,7 @@
                    Values in <strong>bold</strong> and <u>underline</u> indicate the best and second-best, respectively. 
                    All metrics are scaled by 100.</p>
               </div>
-              <table class="lotus-table">
+              <table class="lotus-table bias-table">
                 <thead>
                   <tr class="category-header">
                     <th rowspan="2">Model</th>
